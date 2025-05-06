@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<label for="brukernavn">Brukernavn</label>
-<input placeholder="Skriv inn brukernavn" style="font-style: italic;" type="text" name="brukernavn" required><br>
-<label for="passord">Passord</label>
-<input placeholder="Skriv inn passord" style="font-style: italic;" type="password" name="passord" required><br>
+<form method="post">
+    <label for="brukernavn">Brukernavn</label>
+    <input placeholder="Skriv inn brukernavn" style="font-style: italic;" type="text" name="brukernavn" required><br>
+    <label for="passord">Passord</label>
+    <input placeholder="Skriv inn passord" style="font-style: italic;" type="password" name="passord" required><br>
+    <button type="submit">Logg inn</button>
+</form>
 {% endblock %}

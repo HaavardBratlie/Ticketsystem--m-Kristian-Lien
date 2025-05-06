@@ -1,3 +1,5 @@
+base.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +11,14 @@
     <header>
         <h2>Fjell Bedriftsløsninger</h2>
 
-        <nav>
-            <a href="/send"></a>
-            <a href="/status"></a>
-            <a href="/hendvendelser"></a>
-        </nav>
+            <nav>
+                <a href="/send">Send inn hendvendelser</a>
+                <a href="/status">Status på hendvendelser</a>
+                <a href="/hendvendelser">Alle hendvendelser</a>
+                {% if session.get("admin_logged_in") %}
+                    <a href="/logout">Logg ut</a>
+                {% endif %}
+            </nav>
     </header>
 
     {% block content %}
@@ -25,8 +30,6 @@
         <p>tlf: +47 121 33 454 </p>
     </footer>
 
-    
-    <script src="/static/statusPage.js"></script>
+<script src="/static/statusPage.js"></script>
 </body>
-
 </html>
