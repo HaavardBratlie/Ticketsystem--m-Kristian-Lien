@@ -22,4 +22,3 @@ def status():
 def confirm():
     return render_template("bekreft.html")
 
-
