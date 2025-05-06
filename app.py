@@ -1,6 +1,15 @@
 from flask import Flask, render_template
+import mysql.connector
 
 app = Flask(__name__)
+
+def get_db_connection():
+    return mysql.connector.connect(
+        host="10.2.3.108",
+        user="haavard",
+        password="1234567",
+        database="ticket_system"
+    )
 
 @app.route("/")
 def home():
