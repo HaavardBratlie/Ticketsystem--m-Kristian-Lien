@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session, jsonify, url_for
 import mysql.connector
+import random
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -25,13 +26,12 @@ def init_db():
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS tickets (
-            ticket_id INT PRIMARY KEY,
+            ticket_id VARCHAR(8) NOT NULL PRIMARY KEY,
             name VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL,
-            hendvendelse TEXT NOT NULL,
+            henvendelse TEXT NOT NULL,
             message TEXT NOT NULL,
-            status ENUM('ikke påbegynt', 'under behandling', 'oppklart') DEFAULT 'ikke påbegynt',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            status ENUM('ikke påbegynt', 'under behandling', 'oppklart') DEFAULT 'ikke påbegynt'
         );
     """)
     conn.commit()
@@ -46,12 +46,39 @@ def home():
     return render_template("home.html")
 
 @app.route("/henvendelser")
-def hendbendelser():
+def henvendelser():
     return render_template("henvendelser.html")
 
-@app.route("/send")
+@app.route("/send", methods=["GET", "POST"])
 def send():
-    return render_template("send.html")
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        henvendelse = request.form['henvendelse']
+        message = request.form['message']
+
+        ticket_id = f"#{random.randint(1000000, 9999999)}"
+
+        conn = None
+        cursor = None
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute('''
+                INSERT INTO tickets (ticket_id, name, email, henvendelse, message)
+                VALUES (%s, %s, %s, %s, %s)
+            ''', (ticket_id, name, email, henvendelse, message))
+            conn.commit()
+            
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+        return redirect(url_for("bekreft"))
+
+    return render_template('send.html')
 
 @app.route("/status")
 def status():
