@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fjell</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,7 +17,7 @@
                 <a href="/status">Status på hendvendelser</a>
                 {% if session.get("admin_logged_in") %}
                 <a href="/hendvendelser">Alle hendvendelser</a>
-                    <a href="/logout">Logg ut</a>
+                <a href="/logout">Logg ut</a>
                 {% endif %}
             </nav>
     </header>
@@ -26,7 +28,7 @@
     <footer>
         <h3>Kontakt oss</h3>
         <p>Epost: fjell@bedrift.com</p>
-        <p>tlf: +47 121 33 454 </p>
+        <p>Tlf: +47 121 33 454 </p>
     </footer>
 
 <script src="/static/statusPage.js"></script>

@@ -1,14 +1,22 @@
-#melding{
+#melding {
     height: 100px;
 }
 body {
     margin: 0;
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+}
+
+body h1, h2, h3 {
+    font-family: 'Merriweather';
 }
 
 header {
     background-color: #f4f4f4;
     padding: 20px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: 2px solid #ccc;
 }
 
@@ -19,10 +27,10 @@ header img {
 }
 
 nav {
-    margin-top: 10px;
+    margin-top: 0px;
     display: flex;
-    justify-content: center;
-    gap: 55px;
+    text-align: right;
+    gap: 50px;
 }
 
 nav a {
@@ -33,5 +41,76 @@ nav a {
 
 nav a:hover {
     color: #0056b3;
-    text-decoration: underline;    text-decoration: underline;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid #ccc;
+    bottom: 0;
+    width: 100%;
+}
+
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+}
+
+form input, form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form select {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: 'Poppins';
+    
+}
+
+form select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form option {
+    font-size: 1rem;
+    font-family: 'Poppins';
 }
