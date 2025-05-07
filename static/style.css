@@ -1,3 +1,37 @@
 #melding{
     height: 100px;
 }
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+header img {
+    margin: 0;
+    width: 10vw;
+    height: auto;
+}
+
+nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+    text-decoration: underline;    text-decoration: underline;
+}
