@@ -114,3 +114,51 @@ form option {
     font-size: 1rem;
     font-family: 'Poppins';
 }
+
+table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: 'Poppins';
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #D5D5D5;
+}
+
+table tr:nth-child(odd) {
+    background-color: #EFEFEF;
+}
+
+table h3{
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Merriweather';
+}
+
+.status.ikke_påbegynt {
+    color: white;
+    background-color: #FF5733;
+    
+}
+
+.status.under_behandling {
+    color: white;
+    background-color: #FFC300;
+}
+
+.status.oppklart {
+    color: white;
+    background-color: #28A745;
+}

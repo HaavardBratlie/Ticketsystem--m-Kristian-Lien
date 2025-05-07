@@ -82,8 +82,14 @@ def send():
 
 @app.route("/status")
 def status():
-    return render_template("status.html")
-
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT henvendelse, name, status, ticket_id FROM tickets")
+    tickets = cursor.fetchall()
+    cursor.close()  
+    conn.close()
+    return render_template("status.html", tickets=tickets)
+    
 @app.route("/bekreft")
 def bekreft():
     return render_template("bekreft.html")
