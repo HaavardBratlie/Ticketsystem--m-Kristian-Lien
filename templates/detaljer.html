@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="ticket-details">
+    <h1>Detaljer</h1>
+    <p><strong>Navn:</strong>{{ ticket.name }}</p>
+    <p><strong>E-post:</strong> {{ ticket.email }}</p>
+    <p><strong>Henvendelse:</strong> {{ ticket.henvendelse }}</p>
+    <p><strong>Saksnummer:</strong> {{ ticket.ticket_id }}</p>
+    <p><strong>Melding:</strong><br> {{ ticket.message }}</p>
+    
+    <form method="post" action="{{ url_for('oppdater_status', ticket_id=ticket.ticket_id) }}">
+        <label for="status">Endre status:</label>
+        <select name="status" id="status">
+            <option value="ikke påbegynt" {% if ticket.status == 'ikke påbegynt' %}selected{% endif %}>Ikke påbegynt</option>
+            <option value="under behandling" {% if ticket.status == 'under behandling' %}selected{% endif %}>Under behandling</option>
+            <option value="oppklart" {% if ticket.status == 'oppklart' %}selected{% endif %}>Oppklart</option>
+        </select>
+        <button type="submit">Oppdater status</button>
+    </form>
+</div>
+
+{% endblock %}

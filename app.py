@@ -47,7 +47,13 @@ def home():
 
 @app.route("/henvendelser")
 def henvendelser():
-    return render_template("henvendelser.html")
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM tickets")
+    tickets = cursor.fetchall()
+    cursor.close()  
+    conn.close()
+    return render_template("henvendelser.html", tickets=tickets)
 
 @app.route("/send", methods=["GET", "POST"])
 def send():
@@ -140,6 +146,26 @@ def logout():
     session.clear()    
     return redirect("/")
 
+@app.route("/detaljer/<ticket_id>")
+def detaljer(ticket_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM tickets WHERE ticket_id = %s", (ticket_id,))
+    ticket = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    return render_template("detaljer.html", ticket=ticket)
 
+@app.route("/oppdater_status/<ticket_id>", methods=["POST"])
+def oppdater_status(ticket_id):
+    new_status = request.form.get("status")
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE tickets SET status = %s WHERE ticket_id = %s", (new_status, ticket_id))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return redirect(url_for("henvendelser"))
+     
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")

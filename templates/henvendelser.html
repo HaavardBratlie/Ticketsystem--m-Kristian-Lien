@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th><h3>Henvendelse</h3></th>
+            <th><h3>Navn</h3></th>
+            <th><h3>Status</h3></th>
+            <th><h3>Saksnummer</h3></th>
+            <th><h3>Detaljer</h3></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.henvendelse }}</td>
+            <td>{{ ticket.name }}</td>
+            <td class="status {{ ticket.status | lower | replace(' ', '_') }}">{{ ticket.status }}</td>
+            <td>{{ ticket.ticket_id }}</td>
+            <td><a href="{{ url_for('detaljer', ticket_id=ticket.ticket_id) }}">Detaljer</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
