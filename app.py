@@ -86,6 +86,16 @@ def send():
 
     return render_template('send.html')
 
+@app.route("/slett/<ticket_id>", methods=["POST"])
+def slett(ticket_id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM tickets WHERE ticket_id = %s", (ticket_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return redirect(url_for("henvendelser"))
+
 @app.route("/status")
 def status():
     conn = get_db_connection()
@@ -148,6 +158,7 @@ def admin():
             return render_template("admin.html", error="Feil brukernavn eller passord!")
     
     return render_template("admin.html")
+
 
 @app.route("/logout")
 def logout():

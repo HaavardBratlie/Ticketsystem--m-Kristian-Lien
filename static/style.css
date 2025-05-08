@@ -173,6 +173,19 @@ table h3{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.delete-btn-cell form{
+    margin: 0;
+    padding: 0px;
+    background: none;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: none;
+}
+
+.delete-btn-cell form button {
+    background-color: #FF5733 ;
+}
+
 .confirmation {
     /* text-align: center; */
     margin: 50px auto;
