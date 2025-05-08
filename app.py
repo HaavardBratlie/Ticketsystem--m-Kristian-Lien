@@ -82,7 +82,7 @@ def send():
             if conn:
                 conn.close()
 
-        return redirect(url_for("bekreft"))
+        return redirect(url_for("bekreft", ticket_id=ticket_id))
 
     return render_template('send.html')
 
@@ -98,7 +98,15 @@ def status():
     
 @app.route("/bekreft")
 def bekreft():
-    return render_template("bekreft.html")
+    ticket_id = request.args.get("ticket_id")
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT name, email, henvendelse, message FROM tickets WHERE ticket_id = %s", (ticket_id,))
+    ticket = cursor.fetchone()
+    cursor.close()
+    conn.close()
+
+    return render_template("bekreft.html", ticket_id=ticket_id, name=ticket["name"], email=ticket["email"], henvendelse=ticket["henvendelse"], message=ticket["message"])
 
 @app.route('/api/tickets', methods=['GET'])
 def get_tickets():

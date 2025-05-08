@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="confirmation">
+    <h1>Takk for din henvendelse!</h1>
+    <p>Din henvendelse er sendt inn med følgende detaljer:</p>
+    <ul>
+        <li><strong>Saksnummer:</strong> {{ ticket_id }}</li>
+        <li><strong>Navn:</strong> {{ name }}</li>
+        <li><strong>E-post:</strong> {{ email }}</li>
+        <li><strong>Henvendelse:</strong> {{ henvendelse }}</li>
+        <li><strong>Melding:</strong> {{ message }}</li>
+    </ul>
+    <a href="{{ url_for('status') }}" class="btn">Sjekk status</a>
+</div>
 {% endblock %}
