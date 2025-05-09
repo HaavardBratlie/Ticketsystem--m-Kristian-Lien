@@ -118,25 +118,6 @@ def bekreft():
 
     return render_template("bekreft.html", ticket_id=ticket_id, name=ticket["name"], email=ticket["email"], henvendelse=ticket["henvendelse"], message=ticket["message"])
 
-@app.route('/api/tickets', methods=['GET'])
-def get_tickets():
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM tickets")
-        rows = cursor.fetchall()
-        cursor.close()
-
-        tickets = []
-
-        for row in rows:
-            tickets.append(row)
-
-        return jsonify({'status': 'success', 'message': 'Retrieved tickets', 'tickets': tickets}), 200
-    
-    except Exception as e:
-         return jsonify({'status': 'error', 'message': 'Failed to retrieve tickets', 'error': str(e)}), 500
-
 
 @app.route("/admin", methods=["GET", "POST"])
 def admin():
