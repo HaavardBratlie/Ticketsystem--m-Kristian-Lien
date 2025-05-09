@@ -1,28 +1,33 @@
+<!-- Dette er base.html, en grunnmal for alle sidene i applikasjonen -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fjell</title>
+    <!-- Kobler til CSS-filen for styling -->
     <link rel="stylesheet" href="/static/style.css">
+    <!-- Importerer skrifttyper -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
+        <!-- Logo som lenker til startsiden -->
         <a href="/"><img src="/static/fjell.png" alt="Fjell Bedriftløsninger"></a>
         
-
-            <nav>
-                <a href="/send">Send inn henvendelser</a>
-                <a href="/status">Status på henvendelser</a>
-                {% if session.get("admin_logged_in") %}
-                <a href="/henvendelser">Alle henvendelser</a>
-                <a href="/logout">Logg ut</a>
-                {% endif %}
-            </nav>
+        <!-- Navigasjonsmeny -->
+        <nav>
+            <a href="/send">Send inn henvendelser</a>
+            <a href="/status">Status på henvendelser</a>
+            {% if session.get("admin_logged_in") %}
+            <a href="/henvendelser">Alle henvendelser</a>
+            <a href="/logout">Logg ut</a>
+            {% endif %}
+        </nav>
     </header>
 
+    <!-- Innhold som blir satt inn av andre maler -->
     {% block content %}
     {% endblock %}
 
@@ -32,5 +37,7 @@
         <p>Tlf: +47 121 33 454 </p>
     </footer>
 
+    <!-- Kobler til JavaScript-filen -->
+    <script src="/static/statusPage.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!-- Dette er siden som viser detaljer om en spesifikk henvendelse - bare admin kan gå hit -->
 {% extends 'base.html' %}
 {% block content %}
 
@@ -9,6 +10,7 @@
     <p><strong>Saksnummer:</strong> {{ ticket.ticket_id }}</p>
     <p><strong>Melding:</strong><br> {{ ticket.message }}</p>
     
+    <!-- Form for å oppdatere status på henvendelsen -->
     <form method="post" action="{{ url_for('oppdater_status', ticket_id=ticket.ticket_id) }}">
         <label for="status">Endre status:</label>
         <select name="status" id="status">

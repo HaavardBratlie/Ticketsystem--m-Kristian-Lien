@@ -1,16 +1,21 @@
+/* Styling for tekstområdet i skjemaer */
 #melding {
     height: 100px;
 }
+
+/* Grunnleggende styling for hele siden */
 body {
     margin: 0;
     font-family: 'Poppins';
     font-size: 0.8rem;
 }
 
+/* Overskrifter i body */
 body h1, h2, h3 {
     font-family: 'Merriweather';
 }
 
+/* Styling for headeren */
 header {
     background-color: #f4f4f4;
     padding: 20px;
@@ -20,12 +25,14 @@ header {
     border-bottom: 2px solid #ccc;
 }
 
+/* Styling for logoen i headeren */
 header img {
     margin: 0;
     width: 10vw;
     height: auto;
 }
 
+/* Styling for navigasjonsmenyen */
 nav {
     margin-top: 0px;
     display: flex;
@@ -33,17 +40,20 @@ nav {
     gap: 50px;
 }
 
+/* Styling for lenker i navigasjonsmenyen */
 nav a {
     text-decoration: none;
     color: #007BFF;
     font-weight: bold;
 }
 
+/* Hover-effekt for lenker i navigasjonsmenyen */
 nav a:hover {
     color: #0056b3;
     text-decoration: underline;
 }
 
+/* Styling for footer */
 footer {
     background-color: #f4f4f4;
     padding: 10px;
@@ -53,6 +63,7 @@ footer {
     width: 100%;
 }
 
+/* Styling for skjemaer */
 form {
     max-width: 400px;
     margin: 50px auto;
@@ -63,6 +74,7 @@ form {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for etiketter i skjemaer */
 form label {
     display: block;
     margin-bottom: 10px;
@@ -71,6 +83,7 @@ form label {
     margin-left: 10px;
 }
 
+/* Styling for input- og tekstområder i skjemaer */
 form input, form textarea {
     width: 90%;
     padding: 10px;
@@ -79,6 +92,7 @@ form input, form textarea {
     border-radius: 4px;
 }
 
+/* Styling for knapper i skjemaer */
 form button {
     padding: 10px 20px;
     background-color: #007BFF;
@@ -89,10 +103,12 @@ form button {
     cursor: pointer;
 }
 
+/* Hover-effekt for knapper i skjemaer */
 form button:hover {
     background-color: #0056b3;
 }
 
+/* Styling for dropdown-menyen i skjemaer */
 form select {
     width: 95%;
     padding: 8px;
@@ -101,20 +117,22 @@ form select {
     border-radius: 4px;
     background-color: #fff;
     font-family: 'Poppins';
-    
 }
 
+/* Fokus-effekt for dropdown-menyen */
 form select:focus {
     outline: none;
     border-color: #007BFF;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* Styling for alternativer i dropdown-menyen */
 form option {
     font-size: 1rem;
     font-family: 'Poppins';
 }
 
+/* Styling for tabeller */
 table {
     width: 100%;
     margin: 0;
@@ -123,46 +141,54 @@ table {
     font-family: 'Poppins';
 }
 
+/* Styling for celler i tabeller */
 table th, table td {
     border: 1px solid #ccc;
     padding: 10px;
 }
 
+/* Styling for overskrifter i tabeller */
 table th {
     background-color: #f4f4f4;
     font-weight: bold;
 }
 
+/* Farge for partallsrader i tabeller */
 table tr:nth-child(even) {
     background-color: #D5D5D5;
 }
 
+/* Farge for oddetallsrader i tabeller */
 table tr:nth-child(odd) {
     background-color: #EFEFEF;
 }
 
-table h3{
+/* Styling for overskrifter i tabeller */
+table h3 {
     margin: 0;
     font-size: 1rem;
     font-family: 'Merriweather';
 }
 
+/* Fargekoding for status: ikke påbegynt */
 .status.ikke_påbegynt {
     color: white;
     background-color: #FF5733;
-    
 }
 
+/* Fargekoding for status: under behandling */
 .status.under_behandling {
     color: white;
     background-color: #FFC300;
 }
 
+/* Fargekoding for status: oppklart */
 .status.oppklart {
     color: white;
     background-color: #28A745;
 }
 
+/* Styling for detaljer om en henvendelse */
 .ticket-details {
     margin: 0 auto;
     text-align: left;
@@ -173,21 +199,13 @@ table h3{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.delete-btn-cell form{
-    margin: 0;
-    padding: 0px;
-    background: none;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: none;
-}
-
+/* Styling for slett-knapper */
 .delete-btn-cell form button {
-    background-color: #FF5733 ;
+    background-color: #FF5733;
 }
 
+/* Styling for bekreftelsessiden */
 .confirmation {
-    /* text-align: center; */
     margin: 50px auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -196,18 +214,22 @@ table h3{
     max-width: 600px;
 }
 
+/* Styling for overskriften på bekreftelsessiden */
 .confirmation h1 {
     color: #28A745;
 }
 
+/* Styling for tekst på bekreftelsessiden */
 .confirmation p {
     margin: 10px 0;
 }
 
-.confirmation ul li{
+/* Styling for listeelementer på bekreftelsessiden */
+.confirmation ul li {
     list-style: none;
 }
 
+/* Styling for knappen på bekreftelsessiden */
 .confirmation .btn {
     display: inline-block;
     margin-top: 20px;
@@ -219,6 +241,7 @@ table h3{
     font-weight: bold;
 }
 
+/* Hover-effekt for knappen på bekreftelsessiden */
 .confirmation .btn:hover {
     background-color: #0056b3;
 }
